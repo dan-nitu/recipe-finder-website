@@ -82,7 +82,11 @@ $text-presets: (
 
   font-family: map-get($preset, family);
   font-weight: map-get($preset, weight);
-  font-size: map-get($preset, mobile-size, map-get($preset, size)); // mobile first
+  font-size: if(
+    map-has-key($preset, mobile-size),
+    map-get($preset, mobile-size),
+    map-get($preset, size)
+  ); // mobile first
   line-height: map-get($preset, line-height);
   letter-spacing: map-get($preset, letter-spacing);
 
@@ -97,4 +101,14 @@ $text-presets: (
       font-size: map-get($preset, desktop-size);
     }
   }
+}
+
+h1 {
+  color: $neutral-900;
+  @include text-preset(1);
+}
+
+p {
+  color: $neutral-800;
+  @include text-preset(6);
 }
