@@ -1,102 +1,100 @@
 @use 'variables' as *;
 
 // TEXT PRESETS
-// Text Preset 1
-$text-preset-1-font-family: 'Nunito';
-$text-preset-1-font-weight: 800; // ExtraBold
-$text-preset-1-font-size: 72px;
-$text-preset-1-line-height: 110%;
-$text-preset-1-letter-spacing: -2px;
-$text-preset-1-tablet-font-size: 64px; // Tablet
-$text-preset-1-mobile-font-size: 52px; // Mobile
-
-// Text Preset 2
-$text-preset-2-font-family: 'Nunito';
-$text-preset-2-font-weight: 800; // ExtraBold
-$text-preset-2-font-size: 48px;
-$text-preset-2-line-height: 120%;
-$text-preset-2-letter-spacing: -2px;
-$text-preset-2-mobile-font-size: 40px; // Mobile
-
-// Text Preset 3
-$text-preset-3-font-family: 'Nunito';
-$text-preset-3-font-weight: 700; // Bold
-$text-preset-3-font-size: 32px;
-$text-preset-3-line-height: 130%;
-$text-preset-3-letter-spacing: -1px;
-
-// Text Preset 4
-$text-preset-4-font-family: 'Nunito';
-$text-preset-4-font-weight: 700; // Bold
-$text-preset-4-font-size: 24px;
-$text-preset-4-line-height: 130%;
-$text-preset-4-letter-spacing: -1px;
-
-// Text Preset 5
-$text-preset-5-font-family: 'Nunito';
-$text-preset-5-font-weight: 700; // Bold
-$text-preset-5-font-size: 20px;
-$text-preset-5-line-height: 140%;
-$text-preset-5-letter-spacing: -0.5px;
-
-// Text Preset 6
-$text-preset-6-font-family: 'Nunito Sans';
-$text-preset-6-font-weight: 500; // Medium
-$text-preset-6-font-size: 20px;
-$text-preset-6-line-height: 150%;
-$text-preset-6-letter-spacing: -0.4px;
-
-// Text Preset 7
-$text-preset-7-font-family: 'Nunito';
-$text-preset-7-font-weight: 600; // SemiBold
-$text-preset-7-font-size: 18px;
-$text-preset-7-line-height: 150%;
-$text-preset-7-letter-spacing: -0.3px;
-
-// Text Preset 8
-$text-preset-8-font-family: 'Nunito Sans';
-$text-preset-8-font-weight: 700; // Bold
-$text-preset-8-font-size: 16px;
-$text-preset-8-line-height: 150%;
-$text-preset-8-letter-spacing: -0.3px;
-
-// Text Preset 9
-$text-preset-9-font-family: 'Nunito Sans';
-$text-preset-9-font-weight: 500; // Medium
-$text-preset-9-font-size: 16px;
-$text-preset-9-line-height: 150%;
-$text-preset-9-letter-spacing: -0.3px;
-
-// Text Preset 10
-$text-preset-10-font-family: 'Nunito Sans';
-$text-preset-10-font-weight: 700; // Bold
-$text-preset-10-font-size: 14px;
-$text-preset-10-line-height: 150%;
-$text-preset-10-letter-spacing: -0.3px;
+$text-presets: (
+  1: (
+    family: 'Nunito',
+    weight: 800,
+    size: 72px,
+    line-height: 110%,
+    letter-spacing: -2px,
+    tablet-size: 64px,
+    mobile-size: 52px,
+  ),
+  2: (
+    family: 'Nunito',
+    weight: 800,
+    size: 48px,
+    line-height: 120%,
+    letter-spacing: -2px,
+    mobile-size: 40px,
+  ),
+  3: (
+    family: 'Nunito',
+    weight: 700,
+    size: 32px,
+    line-height: 130%,
+    letter-spacing: -1px,
+  ),
+  4: (
+    family: 'Nunito',
+    weight: 700,
+    size: 24px,
+    line-height: 130%,
+    letter-spacing: -1px,
+  ),
+  5: (
+    family: 'Nunito',
+    weight: 700,
+    size: 20px,
+    line-height: 140%,
+    letter-spacing: -0.5px,
+  ),
+  6: (
+    family: 'Nunito Sans',
+    weight: 500,
+    size: 20px,
+    line-height: 150%,
+    letter-spacing: -0.4px,
+  ),
+  7: (
+    family: 'Nunito',
+    weight: 600,
+    size: 18px,
+    line-height: 150%,
+    letter-spacing: -0.3px,
+  ),
+  8: (
+    family: 'Nunito Sans',
+    weight: 700,
+    size: 16px,
+    line-height: 150%,
+    letter-spacing: -0.3px,
+  ),
+  9: (
+    family: 'Nunito Sans',
+    weight: 500,
+    size: 16px,
+    line-height: 150%,
+    letter-spacing: -0.3px,
+  ),
+  10: (
+    family: 'Nunito Sans',
+    weight: 700,
+    size: 14px,
+    line-height: 150%,
+    letter-spacing: -0.3px,
+  ),
+);
 
 @mixin text-preset($num) {
-  // Base (mobile)
-  font-family: #{eval('$$text-preset-#{$num}-font-family')};
-  font-weight: #{eval('$$text-preset-#{$num}-font-weight')};
-  font-size: if(
-    variable-exists(text-preset-#{$num}-mobile-font-size),
-    #{eval('$$text-preset-#{$num}-mobile-font-size')},
-    #{eval('$$text-preset-#{$num}-font-size')}
-  );
-  line-height: #{eval('$$text-preset-#{$num}-line-height')};
-  letter-spacing: #{eval('$$text-preset-#{$num}-letter-spacing')};
+  $preset: map-get($text-presets, $num);
 
-  // Tablet
-  @if variable-exists(text-preset-#{$num}-tablet-font-size) {
-    @media (min-width: #{$breakpoint-tablet}) {
-      font-size: #{eval('$$text-preset-#{$num}-tablet-font-size')};
+  font-family: map-get($preset, family);
+  font-weight: map-get($preset, weight);
+  font-size: map-get($preset, mobile-size, map-get($preset, size)); // mobile first
+  line-height: map-get($preset, line-height);
+  letter-spacing: map-get($preset, letter-spacing);
+
+  @if map-has-key($preset, tablet-size) {
+    @media (min-width: $breakpoint-tablet) {
+      font-size: map-get($preset, tablet-size);
     }
   }
 
-  // Desktop
-  @if variable-exists(text-preset-#{$num}-desktop-font-size) {
-    @media (min-width: #{$breakpoint-desktop}) {
-      font-size: #{eval('$$text-preset-#{$num}-desktop-font-size')};
+  @if map-has-key($preset, desktop-size) {
+    @media (min-width: $breakpoint-desktop) {
+      font-size: map-get($preset, desktop-size);
     }
   }
 }
