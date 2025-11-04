@@ -23,6 +23,7 @@ section {
 
   .content-wrapper {
     display: grid;
+    justify-items: start;
     gap: 16px;
 
     h1 {

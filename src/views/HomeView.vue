@@ -8,9 +8,9 @@
         Discover eight quick, whole-food recipes that you can cook tonight—no processed junk, no
         guesswork.
       </p>
-    </div>
 
-    <a href="#" class="button">Start exploring</a>
+      <a href="#" class="button">Start exploring</a>
+    </div>
 
     <img src="/src/assets/images/image-home-hero-small.webp" alt="" />
   </section>
