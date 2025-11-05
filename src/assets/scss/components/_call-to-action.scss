@@ -1,0 +1,31 @@
+@use '../variables' as *;
+@use '../typography' as *;
+
+.call-to-action {
+  &.about {
+    padding-top: 0;
+  }
+
+  .call-to-action-wrapper {
+    display: grid;
+    justify-items: center;
+    padding: 48px 16px;
+    gap: 32px;
+    border-radius: $radius-16;
+    background-color: $neutral-200;
+
+    .call-to-action-text {
+      display: grid;
+      gap: 12px;
+      text-align: center;
+
+      h2 {
+        text-wrap: auto;
+      }
+    }
+
+    a.button {
+      @include text-preset(7);
+    }
+  }
+}

@@ -7,9 +7,14 @@ html {
 
 section {
   padding-inline: 16px;
-  margin-top: 64px;
+  padding-top: 64px;
 
   &:first-of-type {
-    margin-top: 48px;
+    padding-top: 48px;
+  }
+
+  &.has-divider {
+    border-top: solid 1px $neutral-200;
+    padding-block: 48px;
   }
 }

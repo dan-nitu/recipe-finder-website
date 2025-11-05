@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 @use 'variables' as *;
 
 // TEXT PRESETS
@@ -78,27 +80,27 @@ $text-presets: (
 );
 
 @mixin text-preset($num) {
-  $preset: map-get($text-presets, $num);
+  $preset: map.get($text-presets, $num);
 
-  font-family: map-get($preset, family);
-  font-weight: map-get($preset, weight);
+  font-family: map.get($preset, family);
+  font-weight: map.get($preset, weight);
   font-size: if(
-    map-has-key($preset, mobile-size),
-    map-get($preset, mobile-size),
-    map-get($preset, size)
+    map.has-key($preset, mobile-size),
+    map.get($preset, mobile-size),
+    map.get($preset, size)
   ); // mobile first
-  line-height: map-get($preset, line-height);
-  letter-spacing: map-get($preset, letter-spacing);
+  line-height: map.get($preset, line-height);
+  letter-spacing: map.get($preset, letter-spacing);
 
-  @if map-has-key($preset, tablet-size) {
+  @if map.has-key($preset, tablet-size) {
     @media (min-width: $breakpoint-tablet) {
-      font-size: map-get($preset, tablet-size);
+      font-size: map.get($preset, tablet-size);
     }
   }
 
-  @if map-has-key($preset, desktop-size) {
+  @if map.has-key($preset, desktop-size) {
     @media (min-width: $breakpoint-desktop) {
-      font-size: map-get($preset, desktop-size);
+      font-size: map.get($preset, desktop-size);
     }
   }
 }
@@ -114,6 +116,17 @@ h2 {
 h3 {
   color: $neutral-900;
   @include text-preset(3);
+}
+h4 {
+  color: $neutral-900;
+  @include text-preset(4);
+}
+h5 {
+  color: $neutral-900;
+  @include text-preset(5);
+  padding: 2px 6px;
+  background: $orange-500;
+  border-radius: 6px;
 }
 
 p {

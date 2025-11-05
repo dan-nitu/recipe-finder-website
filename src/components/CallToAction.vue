@@ -1,5 +1,13 @@
+<script setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  extraClasses: { type: String, default: '' },
+})
+</script>
+
 <template>
-  <section class="call-to-action">
+  <section :class="`call-to-action ${extraClasses}`">
     <div class="call-to-action-wrapper">
       <div class="call-to-action-text">
         <h2>Ready to cook smarter?</h2>
