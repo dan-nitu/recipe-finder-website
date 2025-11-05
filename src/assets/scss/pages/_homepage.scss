@@ -28,7 +28,7 @@
 
           background: #fe9f6b;
           opacity: 0.4;
-          border-radius: 4px;
+          border-radius: $radius-4;
         }
       }
     }
@@ -37,7 +37,7 @@
   img {
     margin-top: 40px;
     box-shadow: 0px 0px 0px 3.45302px $neutral;
-    border-radius: 3.45302px;
+    border-radius: $radius-4;
   }
 }
 
@@ -64,7 +64,7 @@
         background: $neutral;
         border: 1px solid $neutral-200;
         box-shadow: 0px 1px 0px $neutral-200;
-        border-radius: 12px;
+        border-radius: $radius-12;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -87,7 +87,7 @@
   }
 
   img {
-    border-radius: 10px;
+    border-radius: $radius-10;
   }
 }
 
@@ -97,7 +97,7 @@
     justify-items: center;
     padding: 48px 16px;
     gap: 32px;
-    border-radius: 16px;
+    border-radius: $radius-16;
     background-color: $neutral-200;
 
     .call-to-action-text {
