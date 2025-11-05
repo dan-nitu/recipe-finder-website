@@ -107,6 +107,14 @@ h1 {
   color: $neutral-900;
   @include text-preset(1);
 }
+h2 {
+  color: $neutral-900;
+  @include text-preset(2);
+}
+h3 {
+  color: $neutral-900;
+  @include text-preset(3);
+}
 
 p {
   color: $neutral-800;
