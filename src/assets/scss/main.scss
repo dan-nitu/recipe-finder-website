@@ -1,7 +1,7 @@
 @use 'variables' as *;
 @use 'fonts';
 @use 'reset';
-@use 'typography';
+@use 'typography' as *;
 
 @use 'components/button';
 
@@ -106,5 +106,30 @@ section {
 
   img {
     border-radius: 10px;
+  }
+}
+
+.call-to-action {
+  .call-to-action-wrapper {
+    display: grid;
+    justify-items: center;
+    padding: 48px 16px;
+    gap: 32px;
+    border-radius: 16px;
+    background-color: $neutral-200;
+
+    .call-to-action-text {
+      display: grid;
+      gap: 12px;
+      text-align: center;
+
+      h2 {
+        text-wrap: auto;
+      }
+    }
+
+    a.button {
+      @include text-preset(7);
+    }
   }
 }
