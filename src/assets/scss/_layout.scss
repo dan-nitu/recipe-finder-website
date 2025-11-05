@@ -1,0 +1,15 @@
+@use 'variables' as *;
+
+html {
+  background-color: $neutral-100;
+  color: $neutral-900;
+}
+
+section {
+  padding-inline: 16px;
+  margin-top: 64px;
+
+  &:first-of-type {
+    margin-top: 48px;
+  }
+}

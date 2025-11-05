@@ -1,0 +1,18 @@
+@use '../typography' as *;
+
+footer {
+  display: grid;
+  padding: 32px 16px 20px;
+  gap: 24px;
+
+  .social-media-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .footer-text {
+    @include text-preset(9);
+    text-align: center;
+  }
+}
