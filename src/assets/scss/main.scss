@@ -12,7 +12,11 @@ html {
 
 section {
   padding-inline: 16px;
-  margin-top: 48px;
+  margin-top: 64px;
+
+  &:first-of-type {
+    margin-top: 48px;
+  }
 }
 
 .hero {
@@ -88,5 +92,19 @@ section {
         }
       }
     }
+  }
+}
+
+.real-life {
+  display: grid;
+  gap: 32px;
+
+  .real-life-text {
+    display: grid;
+    gap: 20px;
+  }
+
+  img {
+    border-radius: 10px;
   }
 }
