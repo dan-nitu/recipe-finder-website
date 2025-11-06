@@ -87,6 +87,7 @@ const toggleMaxCookTimeDropdown = () => {
         <input type="search" id="search" placeholder="Search by name or ingredient..." />
       </div>
     </div>
+
     <div class="recipe-cards">
       <div class="recipe-item" v-for="recipe in recipes" :key="recipe.id">
         <div class="recipe-top">
@@ -97,6 +98,7 @@ const toggleMaxCookTimeDropdown = () => {
               <h5>{{ recipe.title }}</h5>
               <p>{{ recipe.overview }}</p>
             </div>
+
             <div class="details">
               <div>
                 <img src="/src/assets/images/icon-servings.svg" alt="servings-icon" />
@@ -113,6 +115,7 @@ const toggleMaxCookTimeDropdown = () => {
             </div>
           </div>
         </div>
+
         <a href="#" class="button centered radius-full">View Recipe</a>
       </div>
     </div>
