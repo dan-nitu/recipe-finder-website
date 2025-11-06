@@ -3,7 +3,7 @@ import CallToAction from '@/components/CallToAction.vue'
 </script>
 
 <template>
-  <section class="content">
+  <section class="about content-container">
     <div class="text">
       <h5>Our mission</h5>
       <h2>Help more people cook nourishing meals, more often.</h2>
