@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import data from '../../data.json'
 
 const recipes = ref(data)
@@ -25,12 +25,33 @@ const cookOptions = [
 const showMaxPrepTimeDropdown = ref(false)
 const showMaxCookTimeDropdown = ref(false)
 
+const filtersContainer = ref(null)
+
 const toggleMaxPrepTimeDropdown = () => {
   showMaxPrepTimeDropdown.value = !showMaxPrepTimeDropdown.value
+  showMaxCookTimeDropdown.value = false
 }
+
 const toggleMaxCookTimeDropdown = () => {
   showMaxCookTimeDropdown.value = !showMaxCookTimeDropdown.value
+  showMaxPrepTimeDropdown.value = false
 }
+
+// Close dropdowns if clicking outside
+const handleClickOutside = (event) => {
+  if (filtersContainer.value && !filtersContainer.value.contains(event.target)) {
+    showMaxPrepTimeDropdown.value = false
+    showMaxCookTimeDropdown.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
@@ -44,7 +65,7 @@ const toggleMaxCookTimeDropdown = () => {
   </section>
 
   <section class="recipe-list">
-    <div class="filter-bar">
+    <div class="filter-bar" ref="filtersContainer">
       <div class="filters">
         <fieldset class="radio-dropdown">
           <legend @click="toggleMaxPrepTimeDropdown">Max Prep Time</legend>
