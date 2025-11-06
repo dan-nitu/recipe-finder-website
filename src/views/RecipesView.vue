@@ -1,18 +1,23 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import data from '../../data.json'
 
 const recipes = ref(data)
 
 const maxPrepTime = ref('')
+const maxCookTime = ref('')
+
+const showMaxPrepTimeDropdown = ref(false)
+const showMaxCookTimeDropdown = ref(false)
+
+const filtersContainer = ref(null)
+
 const prepOptions = [
   { label: '0 minutes', value: 0 },
   { label: '5 minutes', value: 5 },
   { label: '10 minutes', value: 10 },
   { label: 'Clear', value: '' },
 ]
-
-const maxCookTime = ref('')
 const cookOptions = [
   { label: '0 minutes', value: 0 },
   { label: '5 minutes', value: 5 },
@@ -22,10 +27,7 @@ const cookOptions = [
   { label: 'Clear', value: '' },
 ]
 
-const showMaxPrepTimeDropdown = ref(false)
-const showMaxCookTimeDropdown = ref(false)
-
-const filtersContainer = ref(null)
+const searchQuery = ref('')
 
 const toggleMaxPrepTimeDropdown = () => {
   showMaxPrepTimeDropdown.value = !showMaxPrepTimeDropdown.value
@@ -51,6 +53,28 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
+})
+
+const normalize = (text) => {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s]/g, '') // remove punctuation
+    .trim()
+}
+
+const filteredRecipes = computed(() => {
+  return recipes.value.filter((recipe) => {
+    const prepFilter = maxPrepTime.value === '' || recipe.prepMinutes <= Number(maxPrepTime.value)
+    const cookFilter = maxCookTime.value === '' || recipe.cookMinutes <= Number(maxCookTime.value)
+
+    const query = normalize(searchQuery.value)
+    const searchFilter =
+      query === '' ||
+      normalize(recipe.title).includes(query) ||
+      recipe.ingredients.some((ingredient) => normalize(ingredient).includes(query))
+
+    return prepFilter && cookFilter && searchFilter
+  })
 })
 </script>
 
@@ -105,12 +129,17 @@ onBeforeUnmount(() => {
       </div>
 
       <div class="search-input">
-        <input type="search" id="search" placeholder="Search by name or ingredient..." />
+        <input
+          type="search"
+          id="search"
+          placeholder="Search by name or ingredient..."
+          v-model="searchQuery"
+        />
       </div>
     </div>
 
-    <div class="recipe-cards">
-      <div class="recipe-item" v-for="recipe in recipes" :key="recipe.id">
+    <div class="recipe-cards" v-if="filteredRecipes.length">
+      <div class="recipe-item" v-for="recipe in filteredRecipes" :key="recipe.id">
         <div class="recipe-top">
           <img :src="recipe.image.small" :alt="recipe.title" />
 
@@ -139,6 +168,19 @@ onBeforeUnmount(() => {
 
         <a href="#" class="button centered radius-full">View Recipe</a>
       </div>
+    </div>
+
+    <div v-else class="no-results">
+      <p><b>No recipes found.</b></p>
+
+      <div v-if="maxPrepTime || maxCookTime || searchQuery">
+        <p>Filters applied:</p>
+        <div class="filter" v-if="maxPrepTime">Prep ≤ {{ maxPrepTime }} mins</div>
+        <div class="filter" v-if="maxCookTime">Cook ≤ {{ maxCookTime }} mins</div>
+        <div class="filter" v-if="searchQuery">Search: "{{ searchQuery }}"</div>
+      </div>
+
+      <p>Try adjusting them to see results.</p>
     </div>
   </section>
 </template>

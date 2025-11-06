@@ -136,3 +136,7 @@ p {
   color: $neutral-800;
   @include text-preset(6);
 }
+
+b {
+  font-weight: bold;
+}

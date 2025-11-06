@@ -87,4 +87,28 @@
       }
     }
   }
+
+  .no-results {
+    @include text-preset(9);
+
+    p {
+      @include text-preset(9);
+    }
+
+    .filter {
+      display: flex;
+      align-items: center;
+
+      gap: 6px;
+      margin-left: 12px;
+
+      &::before {
+        content: '';
+        background-image: url('/src/assets/images/icon-bullet-point.svg');
+        background-size: contain;
+        height: 1em;
+        width: 1em;
+      }
+    }
+  }
 }
