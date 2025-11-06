@@ -1,0 +1,84 @@
+@use '../variables' as *;
+@use '../typography' as *;
+
+.radio-dropdown {
+  border: none;
+
+  legend {
+    @include text-preset(7);
+    color: $neutral-900;
+
+    background: $neutral;
+    border: 1px solid $neutral-200;
+    border-radius: 10px;
+
+    padding: 10px 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::after {
+      content: '';
+      background-image: url('/src/assets/images/icon-chevron-down.svg');
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .wrapper {
+    padding: 8px;
+    margin-top: 8px;
+    background-color: $neutral;
+    border: 1px solid $neutral-200;
+    box-shadow: 0px 12px 22px -12px $neutral-200;
+    border-radius: 8px;
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+
+      &:last-child input[type='radio'] {
+        display: none;
+      }
+
+      input[type='radio'] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 16px;
+        height: 16px;
+        border: 1px solid $neutral-300;
+        filter: drop-shadow(0px 1px 2px rgba($neutral-900, 0.12));
+        border-radius: 999px;
+        background-color: transparent;
+        cursor: pointer;
+        transition: border 0.1s ease;
+
+        &:checked {
+          border: 2px solid $neutral-900;
+
+          &::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: $neutral-900;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      label {
+        @include text-preset(7);
+      }
+    }
+  }
+}
