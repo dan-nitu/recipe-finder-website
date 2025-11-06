@@ -102,12 +102,16 @@
       gap: 6px;
       margin-left: 12px;
 
+      overflow-wrap: break-word;
+      word-break: break-word;
+
       &::before {
         content: '';
         background-image: url('/src/assets/images/icon-bullet-point.svg');
         background-size: contain;
         height: 1em;
         width: 1em;
+        flex-shrink: 0;
       }
     }
   }
