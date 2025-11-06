@@ -5,7 +5,7 @@ import CallToAction from '@/components/CallToAction.vue'
 <template>
   <section class="about content-container">
     <div class="text">
-      <h5>Our mission</h5>
+      <h5 class="pill">Our mission</h5>
       <h2>Help more people cook nourishing meals, more often.</h2>
       <p>
         Healthy Recipe Finder was created to prove that healthy eating can be convenient,

@@ -3,6 +3,7 @@
 
 .radio-dropdown {
   border: none;
+  position: relative;
 
   legend {
     @include text-preset(7);
@@ -15,6 +16,8 @@
     padding: 10px 16px;
 
     display: flex;
+    justify-content: center;
+    width: 100%;
     align-items: center;
     gap: 8px;
 
@@ -27,6 +30,10 @@
   }
 
   .wrapper {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+
     padding: 8px;
     margin-top: 8px;
     background-color: $neutral;

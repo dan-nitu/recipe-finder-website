@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import data from '../../data.json'
+
+const recipes = ref(data)
 
 const maxPrepTime = ref('')
 const prepOptions = [
@@ -20,9 +23,13 @@ const cookOptions = [
 ]
 
 const showMaxPrepTimeDropdown = ref(false)
+const showMaxCookTimeDropdown = ref(false)
 
 const toggleMaxPrepTimeDropdown = () => {
   showMaxPrepTimeDropdown.value = !showMaxPrepTimeDropdown.value
+}
+const toggleMaxCookTimeDropdown = () => {
+  showMaxCookTimeDropdown.value = !showMaxCookTimeDropdown.value
 }
 </script>
 
@@ -39,8 +46,8 @@ const toggleMaxPrepTimeDropdown = () => {
   <section class="recipe-list">
     <div class="filter-bar">
       <div class="filters">
-        <fieldset class="radio-dropdown" @click="toggleMaxPrepTimeDropdown">
-          <legend>Max Prep Time</legend>
+        <fieldset class="radio-dropdown">
+          <legend @click="toggleMaxPrepTimeDropdown">Max Prep Time</legend>
 
           <div class="wrapper" v-if="showMaxPrepTimeDropdown">
             <div v-for="option in prepOptions" :key="option.value">
@@ -50,6 +57,7 @@ const toggleMaxPrepTimeDropdown = () => {
                 name="max-prep-time"
                 :value="option.value"
                 v-model="maxPrepTime"
+                @change="toggleMaxPrepTimeDropdown"
               />
               <label :for="`${option.value}-prep-minutes`">{{ option.label }}</label>
             </div>
@@ -57,9 +65,9 @@ const toggleMaxPrepTimeDropdown = () => {
         </fieldset>
 
         <fieldset class="radio-dropdown">
-          <legend>Max Cook Time</legend>
+          <legend @click="toggleMaxCookTimeDropdown">Max Cook Time</legend>
 
-          <div class="wrapper">
+          <div class="wrapper" v-if="showMaxCookTimeDropdown">
             <div v-for="option in cookOptions" :key="option.value">
               <input
                 type="radio"
@@ -67,6 +75,7 @@ const toggleMaxPrepTimeDropdown = () => {
                 name="max-cook-time"
                 :value="option.value"
                 v-model="maxCookTime"
+                @change="toggleMaxCookTimeDropdown"
               />
               <label :for="`${option.value}-cook-minutes`">{{ option.label }}</label>
             </div>
@@ -74,20 +83,37 @@ const toggleMaxPrepTimeDropdown = () => {
         </fieldset>
       </div>
 
-      <div>max prep time: {{ maxPrepTime }}</div>
-      <div>max cook time: {{ maxCookTime }}</div>
-
       <div class="search-input">
         <input type="search" id="search" placeholder="Search by name or ingredient..." />
       </div>
     </div>
     <div class="recipe-cards">
-      <div class="recipe-item">
+      <div class="recipe-item" v-for="recipe in recipes" :key="recipe.id">
         <div class="recipe-top">
-          <!-- image -->
-          <div class="recipe-info"></div>
+          <img :src="recipe.image.small" :alt="recipe.title" />
+
+          <div class="recipe-info">
+            <div class="description">
+              <h5>{{ recipe.title }}</h5>
+              <p>{{ recipe.overview }}</p>
+            </div>
+            <div class="details">
+              <div>
+                <img src="/src/assets/images/icon-servings.svg" alt="servings-icon" />
+                Servings: {{ recipe.servings }}
+              </div>
+              <div>
+                <img src="/src/assets/images/icon-prep-time.svg" alt="prep-time-icon" />
+                Prep: {{ recipe.prepMinutes }} mins
+              </div>
+              <div>
+                <img src="/src/assets/images/icon-cook-time.svg" alt="cook-time-icon" />
+                Cook: {{ recipe.cookMinutes }} min
+              </div>
+            </div>
+          </div>
         </div>
-        <a href="#" class="button">View Recipe</a>
+        <a href="#" class="button centered radius-full">View Recipe</a>
       </div>
     </div>
   </section>

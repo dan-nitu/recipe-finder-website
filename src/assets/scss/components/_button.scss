@@ -24,4 +24,12 @@ a.button {
       0 0 0 3px $neutral,
       0 0 0 5px $neutral-900;
   }
+
+  &.centered {
+    text-align: center;
+  }
+
+  &.radius-full {
+    border-radius: $radius-full;
+  }
 }

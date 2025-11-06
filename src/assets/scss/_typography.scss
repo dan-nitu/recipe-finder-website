@@ -124,9 +124,12 @@ h4 {
 h5 {
   color: $neutral-900;
   @include text-preset(5);
-  padding: 2px 6px;
-  background: $orange-500;
-  border-radius: 6px;
+
+  &.pill {
+    padding: 2px 6px;
+    background: $orange-500;
+    border-radius: 6px;
+  }
 }
 
 p {
