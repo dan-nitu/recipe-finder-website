@@ -8,9 +8,13 @@
 @use 'components/input';
 @use 'components/call-to-action';
 @use 'components/radio-dropdown';
+@use 'components/recipe-details';
+@use 'components/list';
+@use 'components/recipe-cards';
 
 @use 'components/footer';
 
 @use 'pages/homepage';
 @use 'pages/about';
 @use 'pages/recipes';
+@use 'pages/recipe';

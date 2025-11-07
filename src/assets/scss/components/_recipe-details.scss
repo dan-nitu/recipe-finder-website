@@ -1,0 +1,18 @@
+@use '../typography' as *;
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    @include text-preset(9);
+
+    img {
+      height: 20px;
+    }
+  }
+}

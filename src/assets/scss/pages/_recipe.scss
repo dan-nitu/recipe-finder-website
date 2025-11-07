@@ -1,0 +1,57 @@
+@use '../variables' as *;
+@use '../typography' as *;
+
+.recipe.recipe-details {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 48px;
+  border-bottom: solid 1px $neutral-300;
+
+  .breadcrumbs {
+    @include text-preset(7);
+    display: flex;
+    gap: 6px;
+
+    a {
+      color: $neutral-900;
+      text-decoration: none;
+    }
+
+    span {
+      opacity: 0.6;
+
+      &:last-of-type {
+        opacity: 1;
+      }
+    }
+  }
+
+  .recipe-content {
+    display: grid;
+    gap: 40px;
+
+    padding-bottom: 48px;
+    border-bottom: solid 1px $neutral-300;
+
+    img {
+      border-radius: 10px;
+    }
+
+    .recipe-info {
+      display: grid;
+      gap: 20px;
+    }
+
+    .ingredients,
+    .instructions {
+      display: grid;
+      gap: 16px;
+    }
+  }
+
+  .more-recipes {
+    padding-top: 48px;
+    display: grid;
+    gap: 24px;
+  }
+}

@@ -1,0 +1,29 @@
+@use '../variables' as *;
+@use '../typography' as *;
+
+ul {
+  &.bullet-point {
+    @include text-preset(6);
+    color: $neutral-800;
+
+    list-style: none;
+
+    li {
+      display: flex;
+      gap: 8px;
+
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: '';
+        flex-shrink: 0;
+        background-image: url('/src/assets/images/icon-bullet-point.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 1.5em;
+        width: 1.25em;
+      }
+    }
+  }
+}

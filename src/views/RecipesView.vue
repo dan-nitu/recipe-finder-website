@@ -139,7 +139,7 @@ const filteredRecipes = computed(() => {
     </div>
 
     <div class="recipe-cards" v-if="filteredRecipes.length">
-      <div class="recipe-item" v-for="recipe in filteredRecipes" :key="recipe.id">
+      <div class="recipe-card" v-for="recipe in filteredRecipes" :key="recipe.id">
         <div class="recipe-top">
           <img :src="recipe.image.small" :alt="recipe.title" />
 
@@ -166,7 +166,7 @@ const filteredRecipes = computed(() => {
           </div>
         </div>
 
-        <a href="#" class="button centered radius-full">View Recipe</a>
+        <a :href="'/recipes/' + recipe.slug" class="button centered radius-full">View Recipe</a>
       </div>
     </div>
 
