@@ -1,5 +1,47 @@
 <script setup>
+import BulletPointItem from '@/components/BulletPointItem.vue'
 import CallToAction from '@/components/CallToAction.vue'
+
+const whyWeExistItems = [
+  {
+    id: 1,
+    h4: 'Cut through the noise.',
+    text: `The internet is bursting with recipes, yet most busy cooks still default to take-away or packaged foods. We curate a tight collection of fool-proof dishes so you can skip the scrolling and start cooking.`,
+  },
+  {
+    id: 2,
+    h4: 'Empower home kitchens.',
+    text: `When you control what goes into your meals, you control how you feel. Every recipe is built around unrefined ingredients and ready in about half an hour of active prep.`,
+  },
+  {
+    id: 3,
+    h4: 'Make healthy look good.',
+    text: `High-resolution imagery shows you exactly what success looks like—because we eat with our eyes first, and confidence matters.`,
+  },
+]
+
+const ourFoodPhilosophyItems = [
+  {
+    id: 1,
+    h4: 'Whole ingredients first.',
+    text: `Fresh produce, grains, legumes, herbs, and quality fats form the backbone of every recipe.`,
+  },
+  {
+    id: 2,
+    h4: 'Flavor without compromise.',
+    text: `Spices, citrus, and natural sweetness replace excess salt, sugar, and additives.`,
+  },
+  {
+    id: 3,
+    h4: 'Respect for time.',
+    text: `Weeknight meals should slot into real schedules; weekend cooking can be leisurely but never wasteful.`,
+  },
+  {
+    id: 4,
+    h4: 'Sustainable choices.',
+    text: `Short ingredient lists cut down on food waste and carbon footprint, while plant-forward dishes keep things planet-friendly.`,
+  },
+]
 </script>
 
 <template>
@@ -24,37 +66,12 @@ import CallToAction from '@/components/CallToAction.vue'
     <h2>Why we exist</h2>
 
     <div class="content">
-      <div class="item">
-        <img src="/src/assets/images/icon-bullet-point.svg" alt="" />
-        <div class="text">
-          <h4>Cut through the noise.</h4>
-          <p>
-            The internet is bursting with recipes, yet most busy cooks still default to take-away or
-            packaged foods. We curate a tight collection of fool-proof dishes so you can skip the
-            scrolling and start cooking.
-          </p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/src/assets/images/icon-bullet-point.svg" alt="" />
-        <div class="text">
-          <h4>Empower home kitchens.</h4>
-          <p>
-            When you control what goes into your meals, you control how you feel. Every recipe is
-            built around unrefined ingredients and ready in about half an hour of active prep.
-          </p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/src/assets/images/icon-bullet-point.svg" alt="" />
-        <div class="text">
-          <h4>Make healthy look good.</h4>
-          <p>
-            High-resolution imagery shows you exactly what success looks like—because we eat with
-            our eyes first, and confidence matters.
-          </p>
-        </div>
-      </div>
+      <BulletPointItem
+        v-for="whyWeExistItem in whyWeExistItems"
+        :key="whyWeExistItem.id"
+        :h4="whyWeExistItem.h4"
+        :text="whyWeExistItem.text"
+      />
     </div>
   </section>
 
@@ -62,43 +79,12 @@ import CallToAction from '@/components/CallToAction.vue'
     <h2>Our food philosophy</h2>
 
     <div class="content">
-      <div class="item">
-        <img src="/src/assets/images/icon-bullet-point.svg" alt="" />
-        <div class="text">
-          <h4>Whole ingredients first.</h4>
-          <p>
-            Fresh produce, grains, legumes, herbs, and quality fats form the backbone of every
-            recipe.
-          </p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/src/assets/images/icon-bullet-point.svg" alt="" />
-        <div class="text">
-          <h4>Flavor without compromise.</h4>
-          <p>Spices, citrus, and natural sweetness replace excess salt, sugar, and additives.</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/src/assets/images/icon-bullet-point.svg" alt="" />
-        <div class="text">
-          <h4>Respect for time.</h4>
-          <p>
-            Weeknight meals should slot into real schedules; weekend cooking can be leisurely but
-            never wasteful.
-          </p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/src/assets/images/icon-bullet-point.svg" alt="" />
-        <div class="text">
-          <h4>Sustainable choices.</h4>
-          <p>
-            Short ingredient lists cut down on food waste and carbon footprint, while plant-forward
-            dishes keep things planet-friendly.
-          </p>
-        </div>
-      </div>
+      <BulletPointItem
+        v-for="ourFoodPhilosophyItem in ourFoodPhilosophyItems"
+        :key="ourFoodPhilosophyItem.id"
+        :h4="ourFoodPhilosophyItem.h4"
+        :text="ourFoodPhilosophyItem.text"
+      />
     </div>
   </section>
 
