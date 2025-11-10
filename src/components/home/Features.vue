@@ -1,5 +1,5 @@
 <script setup>
-import FeatureItem from './FeatureItem.vue'
+import FeatureItem from '../FeatureItem.vue'
 
 const featureItems = [
   {
