@@ -2,6 +2,8 @@
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import data from '../../data.json'
 
+import Details from '@/components/Details.vue'
+
 const recipes = ref(data)
 
 const maxPrepTime = ref('')
@@ -149,20 +151,11 @@ const filteredRecipes = computed(() => {
               <p>{{ recipe.overview }}</p>
             </div>
 
-            <div class="details">
-              <div>
-                <img src="/src/assets/images/icon-servings.svg" alt="servings-icon" />
-                Servings: {{ recipe.servings }}
-              </div>
-              <div>
-                <img src="/src/assets/images/icon-prep-time.svg" alt="prep-time-icon" />
-                Prep: {{ recipe.prepMinutes }} mins
-              </div>
-              <div>
-                <img src="/src/assets/images/icon-cook-time.svg" alt="cook-time-icon" />
-                Cook: {{ recipe.cookMinutes }} min
-              </div>
-            </div>
+            <Details
+              :servings="recipe.servings"
+              :prepMinutes="recipe.prepMinutes"
+              :cookMinutes="recipe.cookMinutes"
+            />
           </div>
         </div>
 

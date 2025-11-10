@@ -3,6 +3,9 @@ import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import data from '../../data.json'
 
+import Details from '@/components/Details.vue'
+import BulletPointList from '@/components/BulletPointList.vue'
+
 const route = useRoute()
 const recipeSlug = route.params.slug
 
@@ -31,41 +34,22 @@ const recipeSuggestions = shuffledSuggestions.slice(0, 3)
         <h2>{{ recipe.title }}</h2>
         <p>{{ recipe.overview }}</p>
 
-        <!-- @TODO vue component -->
-        <div class="details">
-          <div>
-            <img src="/src/assets/images/icon-servings.svg" alt="servings-icon" />
-            Servings: {{ recipe.servings }}
-          </div>
-          <div>
-            <img src="/src/assets/images/icon-prep-time.svg" alt="prep-time-icon" />
-            Prep: {{ recipe.prepMinutes }} mins
-          </div>
-          <div>
-            <img src="/src/assets/images/icon-cook-time.svg" alt="cook-time-icon" />
-            Cook: {{ recipe.cookMinutes }} min
-          </div>
-        </div>
+        <Details
+          :servings="recipe.servings"
+          :prepMinutes="recipe.prepMinutes"
+          :cookMinutes="recipe.cookMinutes"
+        />
 
         <div class="ingredients">
           <h4>Ingredients:</h4>
 
-          <!-- @TODO vue component -->
-          <ul class="bullet-point">
-            <li v-for="ingredient in recipe.ingredients" :key="ingredient">
-              {{ ingredient }}
-            </li>
-          </ul>
+          <BulletPointList :items="recipe.ingredients" :keyField="'ingredient'" />
         </div>
 
         <div class="instructions">
           <h4>Instructions:</h4>
 
-          <ul class="bullet-point">
-            <li v-for="instruction in recipe.instructions" :key="instruction">
-              {{ instruction }}
-            </li>
-          </ul>
+          <BulletPointList :items="recipe.instructions" :keyField="'instruction'" />
         </div>
       </div>
     </div>
@@ -89,20 +73,11 @@ const recipeSuggestions = shuffledSuggestions.slice(0, 3)
                 <p>{{ recipeSuggestion.overview }}</p>
               </div>
 
-              <div class="details">
-                <div>
-                  <img src="/src/assets/images/icon-servings.svg" alt="servings-icon" />
-                  Servings: {{ recipeSuggestion.servings }}
-                </div>
-                <div>
-                  <img src="/src/assets/images/icon-prep-time.svg" alt="prep-time-icon" />
-                  Prep: {{ recipeSuggestion.prepMinutes }} mins
-                </div>
-                <div>
-                  <img src="/src/assets/images/icon-cook-time.svg" alt="cook-time-icon" />
-                  Cook: {{ recipeSuggestion.cookMinutes }} min
-                </div>
-              </div>
+              <Details
+                :servings="recipeSuggestion.servings"
+                :prepMinutes="recipeSuggestion.prepMinutes"
+                :cookMinutes="recipeSuggestion.cookMinutes"
+              />
             </div>
           </div>
 
