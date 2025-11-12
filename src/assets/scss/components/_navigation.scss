@@ -1,0 +1,73 @@
+@use '../variables.scss' as *;
+@use '../typography' as *;
+
+nav {
+  z-index: 100;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid $neutral-200;
+
+  img {
+    display: block;
+    max-height: 32px;
+  }
+
+  button {
+    background-color: $neutral-300;
+    border-radius: 4px;
+    padding: 12px;
+  }
+
+  ul {
+    border-radius: 8px;
+    background: $neutral;
+    border: 1px solid $neutral-200;
+    box-shadow: 0px 12px 22px -12px rgba($neutral-800, 0.16);
+
+    position: absolute;
+    top: calc(100% - 4px);
+    inset-inline: 16px;
+
+    list-style: none;
+    padding: 8px;
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-8px);
+    visibility: hidden;
+
+    transition:
+      max-height 0.3s ease,
+      opacity 0.25s ease,
+      transform 0.3s ease,
+      visibility 0s linear 0.3s;
+
+    &.open {
+      max-height: 100vh;
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+      transition:
+        max-height 0.3s ease,
+        opacity 0.25s ease,
+        transform 0.3s ease,
+        visibility 0s;
+    }
+
+    li {
+      @include text-preset(7);
+      display: flex;
+
+      &:not(:last-child) {
+        padding: 12px 8px;
+      }
+
+      a {
+        flex-grow: 1;
+      }
+    }
+  }
+}

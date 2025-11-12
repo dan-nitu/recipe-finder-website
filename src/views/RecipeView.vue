@@ -22,7 +22,6 @@ function loadRecipe(slug) {
   recipeSuggestions.value = shuffledSuggestions.slice(0, 3)
 }
 
-// load the first recipe
 loadRecipe(route.params.slug)
 
 // watch for url changes
