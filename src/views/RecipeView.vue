@@ -5,6 +5,7 @@ import data from '../../data.json'
 
 import Details from '@/components/Details.vue'
 import BulletPointList from '@/components/BulletPointList.vue'
+import RecipeCard from '@/components/RecipeCard.vue'
 
 const route = useRoute()
 const recipeSlug = route.params.slug
@@ -21,7 +22,6 @@ const recipeSuggestions = shuffledSuggestions.slice(0, 3)
 </script>
 
 <template>
-  <!-- <div>recipe view {{ recipeSlug }}</div> -->
   <section class="recipe recipe-details">
     <div class="breadcrumbs">
       <span> <a href="#">Recipes</a></span> <span>/</span> <span>{{ recipe.title }}</span>
@@ -57,32 +57,19 @@ const recipeSuggestions = shuffledSuggestions.slice(0, 3)
     <div class="more-recipes">
       <h3>More recipes</h3>
 
-      <!-- @TODO vue component -->
       <div class="more-recipes-list recipe-cards">
-        <div
-          class="recipe-card"
+        <RecipeCard
           v-for="recipeSuggestion in recipeSuggestions"
           :key="recipeSuggestion.id"
-        >
-          <div class="recipe-top">
-            <img :src="'/' + recipeSuggestion.image.small" :alt="recipeSuggestion.title" />
-
-            <div class="recipe-info">
-              <div class="description">
-                <h5>{{ recipeSuggestion.title }}</h5>
-                <p>{{ recipeSuggestion.overview }}</p>
-              </div>
-
-              <Details
-                :servings="recipeSuggestion.servings"
-                :prepMinutes="recipeSuggestion.prepMinutes"
-                :cookMinutes="recipeSuggestion.cookMinutes"
-              />
-            </div>
-          </div>
-
-          <a :href="'/recipes/' + recipe.slug" class="button centered radius-full">View Recipe</a>
-        </div>
+          :imgUrl="'/' + recipeSuggestion.image.small"
+          :imgAlt="recipeSuggestion.title"
+          :title="recipeSuggestion.title"
+          :text="recipeSuggestion.overview"
+          :servings="recipeSuggestion.servings"
+          :prepMinutes="recipeSuggestion.prepMinutes"
+          :cookMinutes="recipeSuggestion.cookMinutes"
+          :url="'/recipes/' + recipeSuggestion.slug"
+        />
       </div>
     </div>
   </section>

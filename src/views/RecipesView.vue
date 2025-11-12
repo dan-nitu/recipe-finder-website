@@ -2,7 +2,9 @@
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import data from '../../data.json'
 
-import Details from '@/components/Details.vue'
+import RecipesIntro from '@/components/recipes/RecipesIntro.vue'
+
+import RecipeCard from '@/components/RecipeCard.vue'
 
 const recipes = ref(data)
 
@@ -81,14 +83,7 @@ const filteredRecipes = computed(() => {
 </script>
 
 <template>
-  <section class="recipes content-container">
-    <h2>Explore our simple, healthy recipes</h2>
-    <p>
-      Discover eight quick, whole-food dishes that fit real-life schedules and taste amazing. Use
-      the search bar to find a recipe by name or ingredient, or simply scroll the list and let
-      something delicious catch your eye.
-    </p>
-  </section>
+  <RecipesIntro />
 
   <section class="recipe-list">
     <div class="filter-bar" ref="filtersContainer">
@@ -141,26 +136,18 @@ const filteredRecipes = computed(() => {
     </div>
 
     <div class="recipe-cards" v-if="filteredRecipes.length">
-      <div class="recipe-card" v-for="recipe in filteredRecipes" :key="recipe.id">
-        <div class="recipe-top">
-          <img :src="recipe.image.small" :alt="recipe.title" />
-
-          <div class="recipe-info">
-            <div class="description">
-              <h5>{{ recipe.title }}</h5>
-              <p>{{ recipe.overview }}</p>
-            </div>
-
-            <Details
-              :servings="recipe.servings"
-              :prepMinutes="recipe.prepMinutes"
-              :cookMinutes="recipe.cookMinutes"
-            />
-          </div>
-        </div>
-
-        <a :href="'/recipes/' + recipe.slug" class="button centered radius-full">View Recipe</a>
-      </div>
+      <RecipeCard
+        v-for="recipe in filteredRecipes"
+        :key="recipe.id"
+        :imgUrl="recipe.image.small"
+        :imgAlt="recipe.title"
+        :title="recipe.title"
+        :text="recipe.overview"
+        :servings="recipe.servings"
+        :prepMinutes="recipe.prepMinutes"
+        :cookMinutes="recipe.cookMinutes"
+        :url="'/recipes/' + recipe.slug"
+      />
     </div>
 
     <div v-else class="no-results">
