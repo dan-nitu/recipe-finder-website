@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
+
 <template>
   <section class="hero">
     <div class="content-wrapper">
@@ -7,7 +11,7 @@
         guesswork.
       </p>
 
-      <a href="#" class="button">Start exploring</a>
+      <RouterLink to="/recipes" class="button">Start exploring</RouterLink>
     </div>
 
     <img src="/src/assets/images/image-home-hero-small.webp" alt="" />

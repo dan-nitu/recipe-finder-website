@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from 'vue'
+import { RouterLink } from 'vue-router'
 
 import Details from './Details.vue'
 
@@ -30,6 +31,6 @@ defineProps({
       </div>
     </div>
 
-    <a :href="url" class="button centered radius-full">View Recipe</a>
+    <RouterLink :to="url" class="button centered radius-full">View Recipe</RouterLink>
   </div>
 </template>

@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from 'vue'
+import { RouterLink } from 'vue-router'
 
 defineProps({
   extraClasses: { type: String, default: '' },
@@ -14,7 +15,7 @@ defineProps({
         <p>Hit the button, pick a recipe, and get dinner on the table—fast.</p>
       </div>
 
-      <a href="#" class="button">Browse recipes</a>
+      <RouterLink to="/recipes" class="button">Browse recipes</RouterLink>
     </div>
   </section>
 </template>

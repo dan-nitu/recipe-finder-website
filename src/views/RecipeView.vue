@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, watch } from 'vue'
+import { useRoute, RouterLink } from 'vue-router'
 import data from '../../data.json'
 
 import Details from '@/components/Details.vue'
@@ -8,23 +8,40 @@ import BulletPointList from '@/components/BulletPointList.vue'
 import RecipeCard from '@/components/RecipeCard.vue'
 
 const route = useRoute()
-const recipeSlug = route.params.slug
-
 const recipes = ref(data)
 
-const recipe = ref('')
-recipe.value = recipes.value.find((recipe) => recipe.slug === recipeSlug)
+const recipe = ref(null)
+const recipeSuggestions = ref([])
 
-// get 3 random recipes (excluding the displayed one)
-const suggestionsPool = recipes.value.filter((rec) => rec.id !== recipe.value.id)
-const shuffledSuggestions = suggestionsPool.sort(() => Math.random() - 0.5)
-const recipeSuggestions = shuffledSuggestions.slice(0, 3)
+function loadRecipe(slug) {
+  recipe.value = recipes.value.find((rec) => rec.slug === slug)
+
+  // get 3 random recipes (excluding the displayed one)
+  const suggestionsPool = recipes.value.filter((rec) => rec.id !== recipe.value.id)
+  const shuffledSuggestions = suggestionsPool.sort(() => Math.random() - 0.5)
+  recipeSuggestions.value = shuffledSuggestions.slice(0, 3)
+}
+
+// load the first recipe
+loadRecipe(route.params.slug)
+
+// watch for url changes
+watch(
+  () => route.params.slug,
+  (newSlug, oldSlug) => {
+    if (newSlug !== oldSlug) {
+      loadRecipe(newSlug)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  },
+)
 </script>
 
 <template>
   <section class="recipe recipe-details">
     <div class="breadcrumbs">
-      <span> <a href="#">Recipes</a></span> <span>/</span> <span>{{ recipe.title }}</span>
+      <span> <RouterLink to="/recipes">Recipes</RouterLink></span> <span>/</span>
+      <span>{{ recipe.title }}</span>
     </div>
 
     <div class="recipe-content">
