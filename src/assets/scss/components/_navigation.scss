@@ -9,6 +9,11 @@ nav {
   padding: 16px;
   border-bottom: 1px solid $neutral-200;
 
+  > a {
+    display: flex;
+    align-items: center;
+  }
+
   img {
     display: block;
     max-height: 32px;
