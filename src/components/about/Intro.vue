@@ -13,6 +13,15 @@
       </p>
     </div>
 
-    <img src="/src/assets/images/image-about-our-mission-small.webp" alt="" />
+    <picture>
+      <source
+        srcset="/src/assets/images/image-about-our-mission-large.webp"
+        media="(min-width: 768px)"
+      />
+      <img
+        src="/src/assets/images/image-about-our-mission-small.webp"
+        alt="brunette-woman-cutting-carrots"
+      />
+    </picture>
   </section>
 </template>

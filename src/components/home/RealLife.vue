@@ -10,6 +10,15 @@
       <p>Whether you're new to the kitchen or just need fresh ideas, we've got you covered.</p>
     </div>
 
-    <img src="/src/assets/images/image-home-real-life-small.webp" alt="man-preparing-food-table" />
+    <picture>
+      <source
+        srcset="/src/assets/images/image-home-real-life-large.webp"
+        media="(min-width: 768px)"
+      />
+      <img
+        src="/src/assets/images/image-home-real-life-small.webp"
+        alt="man-preparing-food-table"
+      />
+    </picture>
   </section>
 </template>

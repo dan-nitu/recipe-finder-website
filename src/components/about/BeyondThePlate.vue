@@ -15,6 +15,15 @@
       </div>
     </div>
 
-    <img src="/src/assets/images/image-about-beyond-the-plate-small.webp" alt="" />
+    <picture>
+      <source
+        srcset="/src/assets/images/image-about-beyond-the-plate-large.webp"
+        media="(min-width: 768px)"
+      />
+      <img
+        src="/src/assets/images/image-about-beyond-the-plate-small.webp"
+        alt="front-view-family-having-fun-while-preparing-food-kitchen"
+      />
+    </picture>
   </section>
 </template>
