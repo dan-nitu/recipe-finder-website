@@ -16,9 +16,17 @@
     display: grid;
     gap: 12px;
 
+    @media (min-width: $breakpoint-tablet) {
+      grid-template-columns: auto 1fr;
+    }
+
     .filters {
       display: grid;
       gap: 12px;
+
+      @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: 1fr 1fr;
+      }
 
       legend {
         width: 100%;

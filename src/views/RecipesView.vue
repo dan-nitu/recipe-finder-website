@@ -139,7 +139,8 @@ const filteredRecipes = computed(() => {
       <RecipeCard
         v-for="recipe in filteredRecipes"
         :key="recipe.id"
-        :imgUrl="recipe.image.small"
+        :imgUrlSmall="recipe.image.small"
+        :imgUrlLarge="recipe.image.large"
         :imgAlt="recipe.title"
         :title="recipe.title"
         :text="recipe.overview"

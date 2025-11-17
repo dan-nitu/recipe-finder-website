@@ -44,7 +44,10 @@ watch(
     </div>
 
     <div class="recipe-content">
-      <img :src="'/' + recipe.image.small" :alt="recipe.title" />
+      <picture>
+        <source :srcset="'/' + recipe.image.large" media="(min-width: 768px)" />
+        <img :src="'/' + recipe.image.small" :alt="recipe.title" />
+      </picture>
 
       <div class="recipe-info">
         <h2>{{ recipe.title }}</h2>
@@ -77,7 +80,8 @@ watch(
         <RecipeCard
           v-for="recipeSuggestion in recipeSuggestions"
           :key="recipeSuggestion.id"
-          :imgUrl="'/' + recipeSuggestion.image.small"
+          :imgUrlSmall="'/' + recipeSuggestion.image.small"
+          :imgUrlLarge="'/' + recipeSuggestion.image.large"
           :imgAlt="recipeSuggestion.title"
           :title="recipeSuggestion.title"
           :text="recipeSuggestion.overview"

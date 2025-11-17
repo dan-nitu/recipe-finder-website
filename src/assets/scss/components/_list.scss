@@ -13,6 +13,11 @@ ul {
   &.bullet-point {
     list-style: none;
 
+    @media (min-width: $breakpoint-tablet) {
+      display: grid;
+      gap: 8px;
+    }
+
     li {
       display: flex;
       gap: 8px;

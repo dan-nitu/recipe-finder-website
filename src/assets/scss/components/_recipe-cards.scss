@@ -19,8 +19,11 @@
       display: grid;
       gap: 16px;
 
-      img {
+      picture img {
         border-radius: 10px;
+        max-height: 450px;
+        width: 100%;
+        object-fit: cover;
       }
 
       .recipe-info {

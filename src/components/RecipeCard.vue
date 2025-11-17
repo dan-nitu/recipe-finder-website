@@ -5,7 +5,8 @@ import { RouterLink } from 'vue-router'
 import Details from './Details.vue'
 
 defineProps({
-  imgUrl: String,
+  imgUrlSmall: String,
+  imgUrlLarge: String,
   imgAlt: { type: String, default: '' },
   title: String,
   text: String,
@@ -19,7 +20,10 @@ defineProps({
 <template>
   <div class="recipe-card">
     <div class="recipe-top">
-      <img :src="imgUrl" :alt="imgAlt" />
+      <picture>
+        <source :srcset="imgUrlLarge" media="(min-width: 768px)" />
+        <img :src="imgUrlSmall" :alt="imgAlt" />
+      </picture>
 
       <div class="recipe-info">
         <div class="description">
