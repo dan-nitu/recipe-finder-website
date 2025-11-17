@@ -2,10 +2,15 @@
 @use '../typography' as *;
 
 ul {
-  &.bullet-point {
-    @include text-preset(6);
-    color: $neutral-800;
+  @include text-preset(6);
+  color: $neutral-800;
 
+  &:not([class]) {
+    padding-left: 0.5em;
+    list-style-position: inside;
+  }
+
+  &.bullet-point {
     list-style: none;
 
     li {

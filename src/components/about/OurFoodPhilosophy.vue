@@ -26,7 +26,7 @@ const ourFoodPhilosophyItems = [
 </script>
 
 <template>
-  <section class="main-container has-divider">
+  <section class="out-food-philosophy has-divider">
     <h2>Our food philosophy</h2>
 
     <div class="content">
