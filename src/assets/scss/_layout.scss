@@ -9,6 +9,16 @@ section {
   padding-inline: 16px;
   padding-top: 64px;
 
+  @media (min-width: $breakpoint-tablet) {
+    padding-inline: 32px;
+    padding-top: 80px;
+
+    &:not(:nth-last-of-type(2)):not(.call-to-action) {
+      padding-bottom: 80px;
+      border-bottom: solid 1px $neutral-200;
+    }
+  }
+
   &:first-of-type {
     padding-top: 48px;
   }

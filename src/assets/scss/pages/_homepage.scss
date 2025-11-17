@@ -2,10 +2,15 @@
 @use '../typography' as *;
 
 .hero {
-  background-image: url(./../images/pattern-squiggle-3.svg);
+  background-image: url(/src/assets/images/pattern-squiggle-3.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: calc(100% + 150px);
+
+  @media (min-width: $breakpoint-tablet) {
+    background-size: cover;
+    background-position-y: 40px;
+  }
 
   .content-wrapper {
     display: grid;
@@ -32,26 +37,45 @@
         }
       }
     }
+
+    p {
+      max-width: 700px;
+    }
   }
 
   img {
     margin-top: 40px;
     box-shadow: 0px 0px 0px 3.45302px $neutral;
     border-radius: $radius-4;
+
+    @media (min-width: $breakpoint-tablet) {
+      border-radius: $radius-8;
+    }
   }
 }
 
 .features {
   display: grid;
   gap: 32px;
+  @media (min-width: $breakpoint-tablet) {
+    gap: 48px;
+  }
 
   .features-list {
     display: grid;
     gap: 24px;
 
+    @media (min-width: $breakpoint-tablet) {
+      gap: 32px;
+    }
+
     .feature-item {
       display: grid;
       gap: 20px;
+
+      @media (min-width: $breakpoint-tablet) {
+        gap: 24px;
+      }
 
       .feature-text {
         display: grid;
@@ -81,6 +105,10 @@
   display: grid;
   gap: 32px;
 
+  @media (min-width: $breakpoint-tablet) {
+    gap: 40px;
+  }
+
   .real-life-text {
     display: grid;
     gap: 20px;
@@ -88,5 +116,6 @@
 
   img {
     border-radius: $radius-10;
+    width: 100%;
   }
 }

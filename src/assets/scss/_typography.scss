@@ -19,6 +19,7 @@ $text-presets: (
     size: 48px,
     line-height: 120%,
     letter-spacing: -2px,
+    tablet-size: 48px,
     mobile-size: 40px,
   ),
   3: (
@@ -139,4 +140,21 @@ p {
 
 b {
   font-weight: bold;
+}
+
+.highlighted {
+  position: relative;
+  font-weight: bold;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: $orange-500;
+    border-radius: 3px;
+    z-index: -1;
+    inset: 0;
+    top: calc(50% - 2px);
+    height: 0.5em;
+    width: 100%;
+  }
 }

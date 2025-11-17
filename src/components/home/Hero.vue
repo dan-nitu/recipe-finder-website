@@ -14,6 +14,9 @@ import { RouterLink } from 'vue-router'
       <RouterLink to="/recipes" class="button">Start exploring</RouterLink>
     </div>
 
-    <img src="/src/assets/images/image-home-hero-small.webp" alt="" />
+    <picture>
+      <source srcset="/src/assets/images/image-home-hero-large.webp" media="(min-width: 768px)" />
+      <img src="/src/assets/images/image-home-hero-small.webp" alt="" />
+    </picture>
   </section>
 </template>

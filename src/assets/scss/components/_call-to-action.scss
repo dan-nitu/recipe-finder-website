@@ -7,6 +7,7 @@
   }
 
   .call-to-action-wrapper {
+    position: relative;
     display: grid;
     justify-items: center;
     padding: 48px 16px;
@@ -14,7 +15,36 @@
     border-radius: $radius-16;
     background-color: $neutral-200;
 
+    @media (min-width: $breakpoint-tablet) {
+      padding-block: 80px;
+      gap: 40px;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background-repeat: no-repeat;
+      }
+
+      &::before {
+        background-image: url('/src/assets/images/pattern-fork.svg');
+        background-size: auto 65%;
+        background-position: calc(-10%) calc(100% + 35%);
+      }
+
+      &::after {
+        background-image: url('/src/assets/images/pattern-knife.svg');
+        background-size: auto 50%;
+        background-position: right calc(-7.5%) top calc(-35%);
+      }
+    }
+
     .call-to-action-text {
+      z-index: 10;
       display: grid;
       gap: 12px;
       text-align: center;
