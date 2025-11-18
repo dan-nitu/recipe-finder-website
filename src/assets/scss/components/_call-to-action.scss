@@ -2,10 +2,6 @@
 @use '../typography' as *;
 
 .call-to-action {
-  &.about {
-    padding-top: 0;
-  }
-
   .call-to-action-wrapper {
     position: relative;
     display: grid;
@@ -34,12 +30,22 @@
         background-image: url('/src/assets/images/pattern-fork.svg');
         background-size: auto 65%;
         background-position: calc(-10%) calc(100% + 35%);
+
+        @media (min-width: $breakpoint-desktop) {
+          background-size: contain;
+          background-position: left calc(-10%) top calc(20px);
+        }
       }
 
       &::after {
         background-image: url('/src/assets/images/pattern-knife.svg');
         background-size: auto 50%;
         background-position: right calc(-7.5%) top calc(-35%);
+
+        @media (min-width: $breakpoint-desktop) {
+          background-size: contain;
+          background-position: right calc(-7.5%) top calc(-35%);
+        }
       }
     }
 

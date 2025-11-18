@@ -49,5 +49,7 @@ onBeforeUnmount(() => {
         </RouterLink>
       </li>
     </ul>
+
+    <RouterLink to="/recipes" class="button">Browse Recipes</RouterLink>
   </nav>
 </template>

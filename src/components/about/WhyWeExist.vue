@@ -21,7 +21,7 @@ const whyWeExistItems = [
 </script>
 
 <template>
-  <section class="why-we-exist has-divider">
+  <section class="why-we-exist">
     <h2>Why we exist</h2>
 
     <div class="content">

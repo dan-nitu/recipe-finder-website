@@ -3,7 +3,7 @@
 
 footer {
   display: grid;
-  padding: 32px 16px 20px;
+  padding: 32px 16px;
   gap: 24px;
 
   @media (min-width: $breakpoint-tablet) {
@@ -16,6 +16,10 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding-inline: 124px;
   }
 
   .social-media-links {

@@ -5,6 +5,10 @@
   display: grid;
   gap: 32px;
 
+  @media (min-width: $breakpoint-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .recipe-card {
     display: grid;
     gap: 16px;
@@ -24,11 +28,19 @@
         max-height: 450px;
         width: 100%;
         object-fit: cover;
+
+        @media (min-width: $breakpoint-desktop) {
+          max-height: 300px;
+        }
       }
 
       .recipe-info {
         display: grid;
         gap: 16px;
+
+        @media (min-width: $breakpoint-tablet) {
+          padding-inline: 8px;
+        }
 
         .description {
           display: grid;

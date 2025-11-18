@@ -4,6 +4,7 @@
 nav {
   z-index: 100;
   display: flex;
+  align-items: center;
   position: relative;
   justify-content: space-between;
   padding: 16px;
@@ -11,6 +12,10 @@ nav {
 
   @media (min-width: $breakpoint-tablet) {
     padding: 32px 32px 20px 32px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: 20px 60px;
   }
 
   > a {
@@ -27,6 +32,10 @@ nav {
     background-color: $neutral-300;
     border-radius: 4px;
     padding: 12px;
+
+    @media (min-width: $breakpoint-desktop) {
+      display: none;
+    }
   }
 
   ul {
@@ -54,6 +63,20 @@ nav {
       transform 0.3s ease,
       visibility 0s linear 0.3s;
 
+    @media (min-width: $breakpoint-desktop) {
+      position: relative;
+      visibility: visible;
+      opacity: 1;
+      max-height: unset;
+      background: none;
+      border: none;
+      box-shadow: none;
+
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
     &.open {
       max-height: 100vh;
       opacity: 1;
@@ -76,7 +99,21 @@ nav {
 
       a {
         flex-grow: 1;
+
+        &.button {
+          @media (min-width: $breakpoint-desktop) {
+            display: none;
+          }
+        }
       }
+    }
+  }
+
+  > a.button {
+    display: none;
+
+    @media (min-width: $breakpoint-desktop) {
+      display: block;
     }
   }
 }

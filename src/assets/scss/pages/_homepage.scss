@@ -12,10 +12,22 @@
     background-position-y: 40px;
   }
 
+  @media (min-width: $breakpoint-desktop) {
+    display: grid;
+    justify-items: center;
+    background-position-y: center;
+  }
+
   .content-wrapper {
     display: grid;
     justify-items: start;
     gap: 16px;
+
+    @media (min-width: $breakpoint-desktop) {
+      text-align: center;
+      max-width: 800px;
+      justify-items: center;
+    }
 
     h1 {
       span {
@@ -31,7 +43,7 @@
           height: auto;
           width: 100%;
 
-          background: #fe9f6b;
+          background: $orange-500;
           opacity: 0.4;
           border-radius: $radius-4;
         }
@@ -40,17 +52,16 @@
 
     p {
       max-width: 700px;
+
+      @media (min-width: $breakpoint-desktop) {
+        max-width: 580px;
+        margin: auto;
+      }
     }
   }
 
   img {
     margin-top: 40px;
-    box-shadow: 0px 0px 0px 3.45302px $neutral;
-    border-radius: $radius-4;
-
-    @media (min-width: $breakpoint-tablet) {
-      border-radius: $radius-8;
-    }
   }
 }
 
@@ -67,6 +78,10 @@
 
     @media (min-width: $breakpoint-tablet) {
       gap: 32px;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .feature-item {
@@ -109,9 +124,17 @@
     gap: 40px;
   }
 
+  @media (min-width: $breakpoint-desktop) {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 48px;
+  }
+
   .real-life-text {
     display: grid;
     gap: 20px;
+    text-align: left;
+    align-items: center;
   }
 
   img {

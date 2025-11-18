@@ -7,6 +7,12 @@
   align-items: center;
   gap: 8px;
 
+  @media (min-width: $breakpoint-desktop) {
+    margin-left: auto;
+    width: 100%;
+    max-width: 330px;
+  }
+
   &:before {
     content: '';
     position: absolute;
