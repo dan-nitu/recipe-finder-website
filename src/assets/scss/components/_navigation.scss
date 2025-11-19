@@ -9,6 +9,7 @@ nav {
   justify-content: space-between;
   padding: 16px;
   border-bottom: 1px solid $neutral-200;
+  background-color: $neutral-100;
 
   @media (min-width: $breakpoint-tablet) {
     padding: 32px 32px 20px 32px;
@@ -71,10 +72,13 @@ nav {
       background: none;
       border: none;
       box-shadow: none;
+      top: unset;
+      inset-inline: unset;
+      padding: 0;
+      transform: none;
 
       display: flex;
       align-items: center;
-      gap: 40px;
     }
 
     &.open {
@@ -95,6 +99,11 @@ nav {
 
       &:not(:last-child) {
         padding: 12px 8px;
+
+        @media (min-width: $breakpoint-desktop) {
+          margin-inline: 20px;
+          padding: 0;
+        }
       }
 
       a {

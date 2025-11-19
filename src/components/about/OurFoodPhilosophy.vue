@@ -26,7 +26,7 @@ const ourFoodPhilosophyItems = [
 </script>
 
 <template>
-  <section class="out-food-philosophy">
+  <section class="out-food-philosophy has-border-bottom">
     <h2>Our food philosophy</h2>
 
     <div class="content">

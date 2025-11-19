@@ -5,7 +5,6 @@
   display: grid;
   gap: 16px;
   padding-bottom: 48px;
-  border-bottom: solid 1px $neutral-300;
 
   .breadcrumbs {
     @include text-preset(7);

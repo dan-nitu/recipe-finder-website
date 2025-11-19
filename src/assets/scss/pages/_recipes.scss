@@ -8,6 +8,13 @@
   @media (min-width: $breakpoint-desktop) {
     text-align: center;
   }
+
+  p {
+    @media (min-width: $breakpoint-desktop) {
+      max-width: 730px;
+      margin: auto;
+    }
+  }
 }
 
 .recipe-list {

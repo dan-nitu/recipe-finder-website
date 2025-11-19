@@ -27,7 +27,7 @@ const featureItems = [
 </script>
 
 <template>
-  <section class="features">
+  <section class="features has-border-bottom-md">
     <h2>What you'll get</h2>
 
     <div class="features-list">

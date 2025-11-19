@@ -2,6 +2,8 @@
 @use '../typography' as *;
 
 .call-to-action {
+  padding-block: 0;
+
   .call-to-action-wrapper {
     position: relative;
     display: grid;

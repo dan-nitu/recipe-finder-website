@@ -7,18 +7,28 @@ html {
 
 section {
   padding: 64px 16px;
+  max-width: 1440px;
+  margin-inline: auto;
 
   @media (min-width: $breakpoint-tablet) {
-    padding-inline: 32px;
-    padding-top: 80px;
+    padding: 80px 32px;
   }
 
   @media (min-width: $breakpoint-desktop) {
-    padding-top: 96px;
-    padding-inline: 124px;
+    padding: 96px 124px;
   }
 
   &:first-of-type {
     padding-top: 48px;
+  }
+
+  &.has-border-bottom {
+    border-bottom: solid 1px $neutral-300;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    &.has-border-bottom-md {
+      border-bottom: solid 1px $neutral-300;
+    }
   }
 }
