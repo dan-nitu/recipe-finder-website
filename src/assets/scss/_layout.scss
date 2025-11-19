@@ -5,10 +5,22 @@ html {
   color: $neutral-900;
 }
 
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+}
+
 section {
   padding: 64px 16px;
+  width: 100%;
   max-width: 1440px;
   margin-inline: auto;
+
+  &.hero {
+    padding-bottom: 0;
+  }
 
   @media (min-width: $breakpoint-tablet) {
     padding: 80px 32px;

@@ -7,27 +7,6 @@
     justify-items: center;
   }
 
-  &::before {
-    content: '';
-    z-index: -1;
-    position: absolute;
-    inset: 0;
-
-    background-image: url(/src/assets/images/pattern-squiggle-3.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-y: bottom;
-
-    @media (min-width: $breakpoint-tablet) {
-      background-size: cover;
-      background-position-y: 40px;
-    }
-
-    @media (min-width: $breakpoint-desktop) {
-      background-position-y: 30%;
-    }
-  }
-
   .content-wrapper {
     display: grid;
     justify-items: start;

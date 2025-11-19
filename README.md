@@ -1,38 +1,34 @@
-# recipe-finder-website
+# Recipe Finder App
 
-This template should help get you started developing with Vue 3 in Vite.
+## Overview
 
-## Recommended IDE Setup
+A recipe search application built with **Vue 3** and **Vite** for the _Frontend Mentor – Recipe Finder Website_ premium challenge.  
+Users can view the **Home**, **About**, **Recipes**, and **Recipe Detail** pages, search for recipes by name or ingredient and filter results by maximum prep or cook time.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+The app is fully responsive and deployed on **Vercel**.
 
-## Recommended Browser Setup
+## Features
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- View Home, About, Recipes, and Recipe Detail pages
+- Search recipes by **name** or **ingredient**
+- Filter recipe results by **prep time** or **cook time**
+- View recipe previews including images, cook time and number of servings
+- Access detailed recipe information (ingredients, instructions and other recipe suggestions)
+- Fully responsive design
 
-## Customize configuration
+## Tech Stack
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **Vue 3** + **Composition API**
+- **Vite**
+- **SCSS** / **CSS**
+- **Public Recipe API** (e.g., TheMealDB / Edamam — depending on your implementation)
 
-## Project Setup
+## Live Demo
 
-```sh
-npm install
-```
+Check out the live site hosted on **Vercel**:  
+[Live Demo](https://vercel.com/)
 
-### Compile and Hot-Reload for Development
+## Frontend Mentor Challenge
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+This project is a solution for the **Recipe Finder Website** challenge on Frontend Mentor:  
+https://www.frontendmentor.io/challenges/recipe-finder-website--Ui-TZTPxN
