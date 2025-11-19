@@ -31,7 +31,7 @@
 
       background-color: $neutral;
       border: solid 1px $neutral-200;
-      border-radius: 10px;
+      border-radius: $radius-10;
 
       @include text-preset(7);
       color: $neutral-900;

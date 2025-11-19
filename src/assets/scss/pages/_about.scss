@@ -17,11 +17,11 @@
   }
 
   img {
-    border-radius: 10px;
+    border-radius: $radius-10;
     width: 100%;
 
     @media (min-width: $breakpoint-tablet) {
-      border-radius: 20px;
+      border-radius: $radius-20;
     }
   }
 }
@@ -73,11 +73,11 @@
   }
 
   img {
-    border-radius: 10px;
+    border-radius: $radius-10;
     width: 100%;
 
     @media (min-width: $breakpoint-tablet) {
-      border-radius: 20px;
+      border-radius: $radius-20;
     }
   }
 }
