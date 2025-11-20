@@ -6,7 +6,7 @@ import data from '../../data.json'
 import Breadcrumbs from '@/components/recipe/BreadCrumbs.vue'
 import RecipeImage from '@/components/recipe/RecipeImage.vue'
 import Details from '@/components/Details.vue'
-import BulletPointList from '@/components/BulletPointList.vue'
+import RecipeSection from '@/components/recipe/RecipeSection.vue'
 import MoreRecipes from '@/components/recipe/MoreRecipes.vue'
 
 const route = useRoute()
@@ -58,17 +58,9 @@ watch(
           :cookMinutes="recipe.cookMinutes"
         />
 
-        <div class="ingredients">
-          <h4>Ingredients:</h4>
+        <RecipeSection title="Ingredients" :items="recipe.ingredients" keyField="ingredient" />
 
-          <BulletPointList :items="recipe.ingredients" :keyField="'ingredient'" />
-        </div>
-
-        <div class="instructions">
-          <h4>Instructions:</h4>
-
-          <BulletPointList :items="recipe.instructions" :keyField="'instruction'" />
-        </div>
+        <RecipeSection title="Instructions" :items="recipe.instructions" keyField="instruction" />
       </div>
     </div>
 
