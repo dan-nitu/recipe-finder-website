@@ -21,6 +21,7 @@
       <img
         src="/src/assets/images/image-about-our-mission-small.webp"
         alt="brunette-woman-cutting-carrots"
+        loading="lazy"
       />
     </picture>
   </section>

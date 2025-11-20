@@ -20,6 +20,6 @@ defineProps({
 <template>
   <picture>
     <source :srcset="'/' + recipeImageLarge" media="(min-width: 768px)" />
-    <img :src="'/' + recipeImageSmall" :alt="recipeImageAlt" />
+    <img :src="'/' + recipeImageSmall" :alt="recipeImageAlt" loading="lazy" />
   </picture>
 </template>

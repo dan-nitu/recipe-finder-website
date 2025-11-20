@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="item">
-    <img src="/src/assets/images/icon-bullet-point.svg" alt="list-icon" />
+    <img src="/src/assets/images/icon-bullet-point.svg" alt="list-icon" loading="lazy" />
     <div class="text">
       <h4>{{ h4 }}</h4>
       <p>

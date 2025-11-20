@@ -12,7 +12,7 @@ defineProps({
 <template>
   <div class="feature-item">
     <div class="image-wrapper">
-      <img :src="imgUrl" :alt="imgAlt" />
+      <img :src="imgUrl" :alt="imgAlt" loading="lazy" />
     </div>
     <div class="feature-text">
       <h3>{{ h3 }}</h3>

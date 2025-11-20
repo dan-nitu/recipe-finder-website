@@ -18,6 +18,7 @@
       <img
         src="/src/assets/images/image-home-real-life-small.webp"
         alt="man-preparing-food-table"
+        loading="lazy"
       />
     </picture>
   </section>

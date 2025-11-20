@@ -2,14 +2,14 @@
   <footer>
     <div class="social-media-links">
       <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-        <img src="/src/assets/images/icon-instagram.svg" alt="instagram-icon" />
+        <img src="/src/assets/images/icon-instagram.svg" alt="instagram-icon" loading="lazy" />
       </a>
       <a href="https://bsky.app/" target="_blank" rel="noopener noreferrer">
-        <img src="/src/assets/images/icon-bluesky.svg" alt="bluesky-icon"
-      /></a>
+        <img src="/src/assets/images/icon-bluesky.svg" alt="bluesky-icon" loading="lazy" />
+      </a>
       <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">
-        <img src="/src/assets/images/icon-tiktok.svg" alt="tiktok-icon"
-      /></a>
+        <img src="/src/assets/images/icon-tiktok.svg" alt="tiktok-icon" loading="lazy" />
+      </a>
     </div>
 
     <div class="footer-text">Made with ❤️ and 🥑</div>

@@ -36,10 +36,12 @@ onBeforeUnmount(() => {
 
 <template>
   <nav ref="navRef">
-    <RouterLink to="/"> <img src="/src/assets/images/logo.svg" alt="logo" /></RouterLink>
+    <RouterLink to="/">
+      <img src="/src/assets/images/logo.svg" alt="logo" loading="lazy"
+    /></RouterLink>
 
     <button @click="toggleMenu">
-      <img src="/src/assets/images/icon-hamburger-menu.svg" alt="" />
+      <img src="/src/assets/images/icon-hamburger-menu.svg" alt="" loading="lazy" />
     </button>
 
     <ul :class="{ open: isOpen }">

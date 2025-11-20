@@ -22,7 +22,7 @@ defineProps({
     <div class="recipe-top">
       <picture>
         <source :srcset="imgUrlLarge" media="(min-width: 768px)" />
-        <img :src="imgUrlSmall" :alt="imgAlt" />
+        <img :src="imgUrlSmall" :alt="imgAlt" loading="lazy" />
       </picture>
 
       <div class="recipe-info">

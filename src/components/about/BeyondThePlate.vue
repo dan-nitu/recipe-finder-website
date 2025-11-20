@@ -23,6 +23,7 @@
       <img
         src="/src/assets/images/image-about-beyond-the-plate-small.webp"
         alt="front-view-family-having-fun-while-preparing-food-kitchen"
+        loading="lazy"
       />
     </picture>
   </section>

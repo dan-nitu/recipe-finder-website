@@ -16,7 +16,12 @@ import { RouterLink } from 'vue-router'
 
     <picture>
       <source srcset="/src/assets/images/image-home-hero-large.webp" media="(min-width: 768px)" />
-      <img class="framed-image" src="/src/assets/images/image-home-hero-small.webp" alt="" />
+      <img
+        class="framed-image"
+        src="/src/assets/images/image-home-hero-small.webp"
+        alt="hero-image"
+        loading="lazy"
+      />
     </picture>
   </section>
 </template>
