@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import data from '../../data.json'
 
 import Breadcrumbs from '@/components/recipe/BreadCrumbs.vue'
+import RecipeImage from '@/components/recipe/RecipeImage.vue'
 import Details from '@/components/Details.vue'
 import BulletPointList from '@/components/BulletPointList.vue'
 import MoreRecipes from '@/components/recipe/MoreRecipes.vue'
@@ -41,10 +42,11 @@ watch(
     <Breadcrumbs :title="recipe.title" />
 
     <div class="recipe-content">
-      <picture>
-        <source :srcset="'/' + recipe.image.large" media="(min-width: 768px)" />
-        <img :src="'/' + recipe.image.small" :alt="recipe.title" />
-      </picture>
+      <RecipeImage
+        :recipeImageSmall="recipe.image.small"
+        :recipeImageLarge="recipe.image.large"
+        :recipeImageAlt="recipe.title"
+      />
 
       <div class="recipe-info">
         <h2>{{ recipe.title }}</h2>
