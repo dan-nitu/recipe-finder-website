@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import { debounce } from '@/utils/debounce'
 import { useRecipes } from '@/composables/useRecipes'
 
-import RadioDropDown from './RadioDropDown.vue'
+import RadioDropdown from './RadioDropdown.vue'
 import SearchInput from './SearchInput.vue'
 import RecipeCard from '@/components/RecipeCard.vue'
 import NoResults from './NoResults.vue'
@@ -65,14 +65,14 @@ const updateSearch = debounce((value) => {
   <section class="recipe-list">
     <div class="filter-bar">
       <div class="filters">
-        <RadioDropDown
+        <RadioDropdown
           dropdownLabel="Max Prep Time"
           :options="prepOptions"
           name="prep"
           v-model="maxPrepTime"
           :openDropdown="openDropdown"
         />
-        <RadioDropDown
+        <RadioDropdown
           dropdownLabel="Max Cook Time"
           :options="cookOptions"
           name="cook"
