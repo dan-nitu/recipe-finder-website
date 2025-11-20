@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { debounce } from '@/utils/debounce'
 import data from '../../../data.json'
 
 import RadioDropDown from './RadioDropDown.vue'
@@ -54,11 +55,15 @@ const filteredRecipes = computed(() => {
     return prepFilter && cookFilter && searchFilter
   })
 })
+
+const updateSearch = debounce((value) => {
+  searchQuery.value = value
+}, 300)
 </script>
 
 <template>
   <section class="recipe-list">
-    <div class="filter-bar" ref="filtersContainer">
+    <div class="filter-bar">
       <div class="filters">
         <RadioDropDown
           dropdownLabel="Max Prep Time"
@@ -75,8 +80,7 @@ const filteredRecipes = computed(() => {
           :openDropdown="openDropdown"
         />
       </div>
-
-      <SearchInput v-model="searchQuery" />
+      <SearchInput :modelValue="searchQuery" @update:modelValue="updateSearch" />
     </div>
 
     <div class="recipe-cards" v-if="filteredRecipes.length">
