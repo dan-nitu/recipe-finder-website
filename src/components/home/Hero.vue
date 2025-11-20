@@ -1,4 +1,5 @@
 <script setup>
+import { imgPath } from '@/utils/assets'
 import { RouterLink } from 'vue-router'
 </script>
 
@@ -15,10 +16,10 @@ import { RouterLink } from 'vue-router'
     </div>
 
     <picture>
-      <source srcset="/src/assets/images/image-home-hero-large.webp" media="(min-width: 768px)" />
+      <source :srcset="imgPath('image-home-hero-large.webp')" media="(min-width: 768px)" />
       <img
         class="framed-image"
-        src="/src/assets/images/image-home-hero-small.webp"
+        :src="imgPath('image-home-hero-small.webp')"
         alt="hero-image"
         loading="lazy"
       />

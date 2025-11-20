@@ -1,3 +1,7 @@
+<script setup>
+import { imgPath } from '@/utils/assets'
+</script>
+
 <template>
   <section class="about content-container">
     <div class="text">
@@ -14,12 +18,9 @@
     </div>
 
     <picture>
-      <source
-        srcset="/src/assets/images/image-about-our-mission-large.webp"
-        media="(min-width: 768px)"
-      />
+      <source :srcset="imgPath('image-about-our-mission-large.webp')" media="(min-width: 768px)" />
       <img
-        src="/src/assets/images/image-about-our-mission-small.webp"
+        :src="imgPath('image-about-our-mission-small.webp')"
         alt="brunette-woman-cutting-carrots"
         loading="lazy"
       />

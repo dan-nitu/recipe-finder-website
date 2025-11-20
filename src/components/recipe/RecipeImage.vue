@@ -1,4 +1,5 @@
 <script setup>
+import { imgPath } from '@/utils/assets'
 import { defineProps } from 'vue'
 
 defineProps({
@@ -19,7 +20,7 @@ defineProps({
 
 <template>
   <picture>
-    <source :srcset="'/' + recipeImageLarge" media="(min-width: 768px)" />
-    <img :src="'/' + recipeImageSmall" :alt="recipeImageAlt" loading="lazy" />
+    <source :srcset="imgPath(recipeImageLarge)" media="(min-width: 768px)" />
+    <img :src="imgPath(recipeImageSmall)" :alt="recipeImageAlt" loading="lazy" />
   </picture>
 </template>

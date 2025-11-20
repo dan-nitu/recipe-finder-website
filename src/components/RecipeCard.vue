@@ -1,4 +1,5 @@
 <script setup>
+import { imgPath } from '@/utils/assets'
 import { defineProps } from 'vue'
 import { RouterLink } from 'vue-router'
 
@@ -21,8 +22,8 @@ defineProps({
   <div class="recipe-card">
     <div class="recipe-top">
       <picture>
-        <source :srcset="imgUrlLarge" media="(min-width: 768px)" />
-        <img :src="imgUrlSmall" :alt="imgAlt" loading="lazy" />
+        <source :srcset="imgPath(imgUrlLarge)" media="(min-width: 768px)" />
+        <img :src="imgPath(imgUrlSmall)" :alt="imgAlt" loading="lazy" />
       </picture>
 
       <div class="recipe-info">

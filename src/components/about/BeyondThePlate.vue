@@ -1,3 +1,7 @@
+<script setup>
+import { imgPath } from '@/utils/assets'
+</script>
+
 <template>
   <section class="beyond-the-plate">
     <div class="text-container">
@@ -17,11 +21,11 @@
 
     <picture>
       <source
-        srcset="/src/assets/images/image-about-beyond-the-plate-large.webp"
+        :srcset="imgPath('image-about-beyond-the-plate-large.webp')"
         media="(min-width: 768px)"
       />
       <img
-        src="/src/assets/images/image-about-beyond-the-plate-small.webp"
+        :src="imgPath('image-about-beyond-the-plate-small.webp')"
         alt="front-view-family-having-fun-while-preparing-food-kitchen"
         loading="lazy"
       />

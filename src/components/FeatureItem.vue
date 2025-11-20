@@ -1,4 +1,5 @@
 <script setup>
+import { imgPath } from '@/utils/assets'
 import { defineProps } from 'vue'
 
 defineProps({
@@ -12,7 +13,7 @@ defineProps({
 <template>
   <div class="feature-item">
     <div class="image-wrapper">
-      <img :src="imgUrl" :alt="imgAlt" loading="lazy" />
+      <img :src="imgPath(imgUrl)" :alt="imgAlt" loading="lazy" />
     </div>
     <div class="feature-text">
       <h3>{{ h3 }}</h3>

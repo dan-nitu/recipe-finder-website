@@ -1,3 +1,7 @@
+<script setup>
+import { imgPath } from '@/utils/assets'
+</script>
+
 <template>
   <section class="real-life">
     <div class="real-life-text">
@@ -11,12 +15,9 @@
     </div>
 
     <picture>
-      <source
-        srcset="/src/assets/images/image-home-real-life-large.webp"
-        media="(min-width: 768px)"
-      />
+      <source :srcset="imgPath('image-home-real-life-large.webp')" media="(min-width: 768px)" />
       <img
-        src="/src/assets/images/image-home-real-life-small.webp"
+        :src="imgPath('image-home-real-life-small.webp')"
         alt="man-preparing-food-table"
         loading="lazy"
       />
