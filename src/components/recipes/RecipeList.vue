@@ -4,6 +4,7 @@ import data from '../../../data.json'
 
 import SearchInput from './SearchInput.vue'
 import RecipeCard from '@/components/RecipeCard.vue'
+import NoResults from './NoResults.vue'
 
 const recipes = ref(data)
 
@@ -141,17 +142,11 @@ const filteredRecipes = computed(() => {
       />
     </div>
 
-    <div v-else class="no-results">
-      <p><b>No recipes found.</b></p>
-
-      <div v-if="maxPrepTime || maxCookTime || searchQuery">
-        <p>Filters applied:</p>
-        <div class="filter" v-if="maxPrepTime">Prep ≤ {{ maxPrepTime }} mins</div>
-        <div class="filter" v-if="maxCookTime">Cook ≤ {{ maxCookTime }} mins</div>
-        <div class="filter" v-if="searchQuery">Search: "{{ searchQuery }}"</div>
-      </div>
-
-      <p>Try adjusting them to see results.</p>
-    </div>
+    <NoResults
+      v-else
+      :maxPrepTime="maxPrepTime"
+      :maxCookTime="maxCookTime"
+      :searchQuery="searchQuery"
+    />
   </section>
 </template>
