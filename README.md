@@ -26,7 +26,7 @@ The app is fully responsive and deployed on **Vercel**.
 ## Live Demo
 
 Check out the live site hosted on **Vercel**:  
-[Live Demo](https://vercel.com/)
+[Live Demo](https://healthy-recipe-finder-frontend-mentor.vercel.app/)
 
 ## Frontend Mentor Challenge
 
