@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import data from '../../data.json'
+import { useRecipes } from '@/composables/useRecipes'
 
 import Breadcrumbs from '@/components/recipe/BreadCrumbs.vue'
 import RecipeImage from '@/components/recipe/RecipeImage.vue'
@@ -10,18 +10,14 @@ import RecipeSection from '@/components/recipe/RecipeSection.vue'
 import MoreRecipes from '@/components/recipe/MoreRecipes.vue'
 
 const route = useRoute()
-const recipes = ref(data)
+const { findBySlug, getRandomSuggestions } = useRecipes()
 
 const recipe = ref(null)
 const recipeSuggestions = ref([])
 
 function loadRecipe(slug) {
-  recipe.value = recipes.value.find((rec) => rec.slug === slug)
-
-  // get 3 random recipes (excluding the displayed one)
-  const suggestionsPool = recipes.value.filter((rec) => rec.id !== recipe.value.id)
-  const shuffledSuggestions = suggestionsPool.sort(() => Math.random() - 0.5)
-  recipeSuggestions.value = shuffledSuggestions.slice(0, 3)
+  recipe.value = findBySlug(slug)
+  recipeSuggestions.value = getRandomSuggestions(recipe.value.id)
 }
 
 loadRecipe(route.params.slug)

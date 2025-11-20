@@ -1,14 +1,16 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { debounce } from '@/utils/debounce'
-import data from '../../../data.json'
+import { useRecipes } from '@/composables/useRecipes'
 
 import RadioDropDown from './RadioDropDown.vue'
 import SearchInput from './SearchInput.vue'
 import RecipeCard from '@/components/RecipeCard.vue'
 import NoResults from './NoResults.vue'
 
-const recipes = ref(data)
+const { recipesData } = useRecipes()
+
+const recipes = ref(recipesData)
 
 const maxPrepTime = ref(null)
 const maxCookTime = ref(null)
