@@ -3,7 +3,7 @@ import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useRecipes } from '@/composables/useRecipes'
 
-import Breadcrumbs from '@/components/recipe/BreadCrumbs.vue'
+import Breadcrumbs from '@/components/recipe/Breadcrumbs.vue'
 import RecipeImage from '@/components/recipe/RecipeImage.vue'
 import Details from '@/components/Details.vue'
 import RecipeSection from '@/components/recipe/RecipeSection.vue'
