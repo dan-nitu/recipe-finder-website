@@ -1,18 +1,16 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { ref, computed } from 'vue'
 import data from '../../../data.json'
 
+import RadioDropDown from './RadioDropDown.vue'
 import SearchInput from './SearchInput.vue'
 import RecipeCard from '@/components/RecipeCard.vue'
 import NoResults from './NoResults.vue'
 
 const recipes = ref(data)
 
-const maxPrepTime = ref('')
-const maxCookTime = ref('')
-
-const showMaxPrepTimeDropdown = ref(false)
-const showMaxCookTimeDropdown = ref(false)
+const maxPrepTime = ref(null)
+const maxCookTime = ref(null)
 
 const filtersContainer = ref(null)
 
@@ -20,7 +18,7 @@ const prepOptions = [
   { label: '0 minutes', value: 0 },
   { label: '5 minutes', value: 5 },
   { label: '10 minutes', value: 10 },
-  { label: 'Clear', value: '' },
+  { label: 'Clear', value: null },
 ]
 const cookOptions = [
   { label: '0 minutes', value: 0 },
@@ -28,36 +26,12 @@ const cookOptions = [
   { label: '10 minutes', value: 10 },
   { label: '15 minutes', value: 15 },
   { label: '20 minutes', value: 20 },
-  { label: 'Clear', value: '' },
+  { label: 'Clear', value: null },
 ]
 
+const openDropdown = ref({})
+
 const searchQuery = ref('')
-
-const toggleMaxPrepTimeDropdown = () => {
-  showMaxPrepTimeDropdown.value = !showMaxPrepTimeDropdown.value
-  showMaxCookTimeDropdown.value = false
-}
-
-const toggleMaxCookTimeDropdown = () => {
-  showMaxCookTimeDropdown.value = !showMaxCookTimeDropdown.value
-  showMaxPrepTimeDropdown.value = false
-}
-
-// Close dropdowns if clicking outside
-const handleClickOutside = (event) => {
-  if (filtersContainer.value && !filtersContainer.value.contains(event.target)) {
-    showMaxPrepTimeDropdown.value = false
-    showMaxCookTimeDropdown.value = false
-  }
-}
-
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
-
-onBeforeUnmount(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
 
 const normalize = (text) => {
   return text
@@ -68,8 +42,8 @@ const normalize = (text) => {
 
 const filteredRecipes = computed(() => {
   return recipes.value.filter((recipe) => {
-    const prepFilter = maxPrepTime.value === '' || recipe.prepMinutes <= Number(maxPrepTime.value)
-    const cookFilter = maxCookTime.value === '' || recipe.cookMinutes <= Number(maxCookTime.value)
+    const prepFilter = maxPrepTime.value === null || recipe.prepMinutes <= Number(maxPrepTime.value)
+    const cookFilter = maxCookTime.value === null || recipe.cookMinutes <= Number(maxCookTime.value)
 
     const query = normalize(searchQuery.value)
     const searchFilter =
@@ -86,41 +60,20 @@ const filteredRecipes = computed(() => {
   <section class="recipe-list">
     <div class="filter-bar" ref="filtersContainer">
       <div class="filters">
-        <fieldset class="radio-dropdown">
-          <legend @click="toggleMaxPrepTimeDropdown">Max Prep Time</legend>
-
-          <div class="wrapper" v-if="showMaxPrepTimeDropdown">
-            <div v-for="option in prepOptions" :key="option.value">
-              <input
-                type="radio"
-                :id="`${option.value}-prep-minutes`"
-                name="max-prep-time"
-                :value="option.value"
-                v-model="maxPrepTime"
-                @change="toggleMaxPrepTimeDropdown"
-              />
-              <label :for="`${option.value}-prep-minutes`">{{ option.label }}</label>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="radio-dropdown">
-          <legend @click="toggleMaxCookTimeDropdown">Max Cook Time</legend>
-
-          <div class="wrapper" v-if="showMaxCookTimeDropdown">
-            <div v-for="option in cookOptions" :key="option.value">
-              <input
-                type="radio"
-                :id="`${option.value}-cook-minutes`"
-                name="max-cook-time"
-                :value="option.value"
-                v-model="maxCookTime"
-                @change="toggleMaxCookTimeDropdown"
-              />
-              <label :for="`${option.value}-cook-minutes`">{{ option.label }}</label>
-            </div>
-          </div>
-        </fieldset>
+        <RadioDropDown
+          dropdownLabel="Max Prep Time"
+          :options="prepOptions"
+          name="prep"
+          v-model="maxPrepTime"
+          :openDropdown="openDropdown"
+        />
+        <RadioDropDown
+          dropdownLabel="Max Cook Time"
+          :options="cookOptions"
+          name="cook"
+          v-model="maxCookTime"
+          :openDropdown="openDropdown"
+        />
       </div>
 
       <SearchInput v-model="searchQuery" />

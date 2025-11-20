@@ -2,8 +2,8 @@
 import { defineProps } from 'vue'
 
 defineProps({
-  maxPrepTime: [Number, String],
-  maxCookTime: [Number, String],
+  maxPrepTime: [Number, null],
+  maxCookTime: [Number, null],
   searchQuery: String,
 })
 </script>
