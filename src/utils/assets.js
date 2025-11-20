@@ -5,6 +5,6 @@ export const imgPath = (path) => {
   try {
     return new URL(`../assets/images/${clean}`, import.meta.url).href
   } catch {
-    return '' // fails gracefully if file missing
+    return ''
   }
 }
