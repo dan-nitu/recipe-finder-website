@@ -1,6 +1,10 @@
 export const imgPath = (path) => {
   if (!path) return ''
-  // Remove leading /src/ or src/ if present, ensure clean path
-  const clean = path.replace(/^\/?(src\/)?/, '')
-  return `/src/assets/images/${clean}`
+  const clean = path.replace(/^\/?(src\/assets\/images\/)?/, '')
+
+  try {
+    return new URL(`../assets/images/${clean}`, import.meta.url).href
+  } catch {
+    return '' // fails gracefully if file missing
+  }
 }
