@@ -1,8 +1,9 @@
 <script setup>
 import { ref, watch } from 'vue'
-import { useRoute, RouterLink } from 'vue-router'
+import { useRoute } from 'vue-router'
 import data from '../../data.json'
 
+import Breadcrumbs from '@/components/recipe/BreadCrumbs.vue'
 import Details from '@/components/Details.vue'
 import BulletPointList from '@/components/BulletPointList.vue'
 import RecipeCard from '@/components/RecipeCard.vue'
@@ -38,10 +39,7 @@ watch(
 
 <template>
   <section class="recipe recipe-details">
-    <div class="breadcrumbs">
-      <span> <RouterLink to="/recipes">Recipes</RouterLink></span> <span>/</span>
-      <span>{{ recipe.title }}</span>
-    </div>
+    <Breadcrumbs :title="recipe.title" />
 
     <div class="recipe-content">
       <picture>
