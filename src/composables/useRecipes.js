@@ -8,7 +8,12 @@ export function useRecipes() {
 
   const getRandomSuggestions = (excludeId, count = 3) => {
     const pool = recipesData.value.filter((r) => r.id !== excludeId)
-    return pool.sort(() => Math.random() - 0.5).slice(0, count)
+    // Fisher-Yates shuffle for true randomness
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[pool[i], pool[j]] = [pool[j], pool[i]]
+    }
+    return pool.slice(0, count)
   }
 
   return { recipesData, findBySlug, getRandomSuggestions }

@@ -10,8 +10,6 @@ import NoResults from './NoResults.vue'
 
 const { recipesData } = useRecipes()
 
-const recipes = ref(recipesData)
-
 const maxPrepTime = ref(null)
 const maxCookTime = ref(null)
 
@@ -44,7 +42,7 @@ const normalize = (text) => {
 }
 
 const filteredRecipes = computed(() => {
-  return recipes.value.filter((recipe) => {
+  return recipesData.value.filter((recipe) => {
     const prepFilter = maxPrepTime.value === null || recipe.prepMinutes <= Number(maxPrepTime.value)
     const cookFilter = maxCookTime.value === null || recipe.cookMinutes <= Number(maxCookTime.value)
 
