@@ -16,15 +16,17 @@ const router = createRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      // Back/forward buttons
+      // remember scroll position when navigating back
       return savedPosition
-    } else if (to.hash) {
-      // Anchor links
-      return { el: to.hash, behavior: 'smooth' }
-    } else {
-      // Default scroll to top
-      return { top: 0 }
     }
+
+    if (to.hash) {
+      // scroll to anchor
+      return { el: to.hash, behavior: 'smooth' }
+    }
+
+    // scroll to top on 'normal' navigation
+    return { top: 0, behavior: 'smooth' }
   },
 })
 
