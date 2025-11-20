@@ -6,7 +6,6 @@ import data from '../../data.json'
 import Breadcrumbs from '@/components/recipe/BreadCrumbs.vue'
 import Details from '@/components/Details.vue'
 import BulletPointList from '@/components/BulletPointList.vue'
-import RecipeCard from '@/components/RecipeCard.vue'
 import MoreRecipes from '@/components/recipe/MoreRecipes.vue'
 
 const route = useRoute()
@@ -32,7 +31,6 @@ watch(
   (newSlug, oldSlug) => {
     if (newSlug !== oldSlug) {
       loadRecipe(newSlug)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   },
 )
